@@ -119,7 +119,7 @@ export default function ScorePage() {
       fontFamily: 'system-ui, sans-serif', minHeight: '100vh'
     }}>
       <h1 style={{ textAlign: 'center', fontSize: '1.6rem', marginBottom: '1.5rem' }}>
-        🏆 8-Ball Poängräknare
+        ð 8-Ball PoÃ¤ngrÃ¤knare
       </h1>
 
       {/* Score display */}
@@ -151,10 +151,10 @@ export default function ScorePage() {
               />
               {group && (
                 <div style={{ fontSize: '0.8rem', marginTop: '0.25rem', opacity: 0.8 }}>
-                  {group === 'solids' ? '● Solids' : '◐ Stripes'} · {remaining} kvar
+                  {group === 'solids' ? 'â Solids' : 'â Stripes'} Â· {remaining} kvar
                 </div>
               )}
-              {isWinner && <div style={{ fontSize: '1.2rem', marginTop: '0.5rem' }}>🎉 VINST!</div>}
+              {isWinner && <div style={{ fontSize: '1.2rem', marginTop: '0.5rem' }}>ð VINST!</div>}
             </div>
           );
         })}
@@ -166,7 +166,7 @@ export default function ScorePage() {
           padding: '0.5rem', borderRadius: 8, marginBottom: '1rem',
           fontWeight: 600
         }}>
-          ⚠️ FEL! Tur byte
+          â ï¸ FEL! Tur byte
         </div>
       )}
 
@@ -178,7 +178,7 @@ export default function ScorePage() {
             marginBottom: '1rem'
           }}>
             <div style={{ textAlign: 'center', color: '#fff', fontSize: '0.8rem', marginBottom: '0.75rem', opacity: 0.7 }}>
-              Tryck på en boll för att markera som nedfälld
+              Tryck pÃ¥ en boll fÃ¶r att markera som nedfÃ¤lld
             </div>
             
             {/* Solids */}
@@ -204,19 +204,19 @@ export default function ScorePage() {
           {/* Group assignment */}
           {!p1Group && (
             <div style={{
-              textAlign: 'center', fontSize: '0.85rem', color: '#666',
+              textAlign: 'center', fontSize: '0.85rem', color: '#444',
               marginBottom: '1rem'
             }}>
-              Första bollen som fälls bestämmer grupp
+              FÃ¶rsta bollen som fÃ¤lls bestÃ¤mmer grupp
             </div>
           )}
           {p1Group && (
             <button onClick={swapGroups} style={{
               display: 'block', margin: '0 auto 1rem', padding: '0.4rem 1rem',
               borderRadius: 6, border: '1px solid #ddd', background: '#fff',
-              cursor: 'pointer', fontSize: '0.8rem', color: '#666'
+              cursor: 'pointer', fontSize: '0.8rem', color: '#444'
             }}>
-              🔄 Byt grupper
+              ð Byt grupper
             </button>
           )}
         </>
@@ -230,7 +230,7 @@ export default function ScorePage() {
           color: '#fff', cursor: gameOver ? 'default' : 'pointer',
           fontWeight: 600, fontSize: '0.9rem'
         }}>
-          🔄 Byt tur
+          ð Byt tur
         </button>
         <button onClick={callFoul} disabled={gameOver} style={{
           flex: 1, padding: '0.75rem', borderRadius: 10,
@@ -238,22 +238,22 @@ export default function ScorePage() {
           color: '#fff', cursor: gameOver ? 'default' : 'pointer',
           fontWeight: 600, fontSize: '0.9rem'
         }}>
-          ⚠️ FEL
+          â ï¸ FEL
         </button>
         <button onClick={resetGame} style={{
           padding: '0.75rem 1rem', borderRadius: 10,
           border: '1px solid #ddd', background: '#fff',
           cursor: 'pointer', fontWeight: 600, fontSize: '0.9rem'
         }}>
-          🔄
+          ð
         </button>
       </div>
 
       {/* Game history */}
       {games.length > 0 && (
         <div>
-          <h3 style={{ fontSize: '0.9rem', color: '#555', marginBottom: '0.5rem' }}>
-            📊 Matcher ({games.length})
+          <h3 style={{ fontSize: '0.9rem', color: '#1a1a1b', marginBottom: '0.5rem' }}>
+            ð Matcher ({games.length})
           </h3>
           {games.map((g, i) => (
             <div key={i} style={{
@@ -263,21 +263,21 @@ export default function ScorePage() {
             }}>
               <span>#{i + 1}</span>
               <span style={{ fontWeight: 600 }}>{g.winner}</span>
-              <span style={{ color: '#888' }}>{g.time}</span>
+              <span style={{ color: '#666' }}>{g.time}</span>
             </div>
           ))}
         </div>
       )}
 
       {/* Rules */}
-      <details style={{ marginTop: '2rem', fontSize: '0.8rem', color: '#666' }}>
+      <details style={{ marginTop: '2rem', fontSize: '0.8rem', color: '#444' }}>
         <summary style={{ cursor: 'pointer', fontWeight: 600 }}>Regler</summary>
         <div style={{ marginTop: '0.5rem', lineHeight: 1.6 }}>
-          <p>• Spelare 1 bollar först — första bollen bestämmer grupp</p>
-          <p>• Solids: 1-7 · Stripes: 9-15</p>
-          <p>• Fäll alla dina bollar, sen 8-bollen för att vinna</p>
-          <p>• FEL-knappen byter tur (t.ex. vit boll i hål)</p>
-          <p>• Tryck på en boll igen för att ångra</p>
+          <p>â¢ Spelare 1 bollar fÃ¶rst â fÃ¶rsta bollen bestÃ¤mmer grupp</p>
+          <p>â¢ Solids: 1-7 Â· Stripes: 9-15</p>
+          <p>â¢ FÃ¤ll alla dina bollar, sen 8-bollen fÃ¶r att vinna</p>
+          <p>â¢ FEL-knappen byter tur (t.ex. vit boll i hÃ¥l)</p>
+          <p>â¢ Tryck pÃ¥ en boll igen fÃ¶r att Ã¥ngra</p>
         </div>
       </details>
     </main>
