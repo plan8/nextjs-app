@@ -7,14 +7,11 @@ export const metadata = {
 
 const navStyle = {
   display: 'flex', gap: '1rem', padding: '1rem 2rem',
-  background: '#1a1a2e', justifyContent: 'center',
-  flexWrap: 'wrap'
+  background: '#1a1a2e', justifyContent: 'center', flexWrap: 'wrap'
 };
-
 const linkStyle = {
   color: '#fff', textDecoration: 'none', padding: '0.5rem 1rem',
-  borderRadius: 8, fontSize: '0.95rem', fontWeight: 500,
-  transition: 'background 0.2s'
+  borderRadius: 8, fontSize: '0.95rem', fontWeight: 500
 };
 
 export default function RootLayout({ children }) {
@@ -22,9 +19,10 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body style={{ margin: 0 }}>
         <nav style={navStyle}>
-          <a href="/nextjs-app/" style={linkStyle}>🏠 Hem</a>
-          <a href="/nextjs-app/break" style={linkStyle}>🎱 Break Speed</a>
-          <a href="/nextjs-app/score" style={linkStyle}>🏆 Poängräknare</a>
+          <a href="/nextjs-app/" style={linkStyle}>Home</a>
+          <a href="/nextjs-app/break" style={linkStyle}>Break Speed</a>
+          <a href="/nextjs-app/score" style={linkStyle}>Score Tracker</a>
+          <a href="/nextjs-app/trickshots" style={linkStyle}>Trick Shots</a>
         </nav>
         {children}
       </body>
