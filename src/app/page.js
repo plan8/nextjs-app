@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import Link from 'next/link'
 
 export default function Home() {
   const [count, setCount] = useState(0)
@@ -19,6 +20,10 @@ export default function Home() {
         </button>
       </div>
       <div className="features">
+        <Link href="/break" className="feature" style={{ textDecoration: 'none', color: 'inherit' }}>
+          <h3>🎱 Break Speed</h3>
+          <p>Mät din biljard-sprängningshastighet</p>
+        </Link>
         <div className="feature">
           <h3>⚡ Next.js 14</h3>
           <p>App Router + Static Export</p>
@@ -26,10 +31,6 @@ export default function Home() {
         <div className="feature">
           <h3>🔄 GitHub Actions</h3>
           <p>Automatic build & deploy</p>
-        </div>
-        <div className="feature">
-          <h3>📦 GitHub Pages</h3>
-          <p>Free static hosting</p>
         </div>
       </div>
       <p className="footer">
