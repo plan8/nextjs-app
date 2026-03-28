@@ -119,7 +119,7 @@ export default function ScorePage() {
       fontFamily: 'system-ui, sans-serif', minHeight: '100vh'
     }}>
       <h1 style={{ textAlign: 'center', fontSize: '1.6rem', marginBottom: '1.5rem' }}>
-        ð 8-Ball PoÃ¤ngrÃ¤knare
+        Ã°ÂÂÂ 8-Ball PoÃÂ¤ngrÃÂ¤knare
       </h1>
 
       {/* Score display */}
@@ -151,10 +151,10 @@ export default function ScorePage() {
               />
               {group && (
                 <div style={{ fontSize: '0.8rem', marginTop: '0.25rem', opacity: 0.8 }}>
-                  {group === 'solids' ? 'â Solids' : 'â Stripes'} Â· {remaining} kvar
+                  {group === 'solids' ? 'Ã¢ÂÂ Solids' : 'Ã¢ÂÂ Stripes'} ÃÂ· {remaining} kvar
                 </div>
               )}
-              {isWinner && <div style={{ fontSize: '1.2rem', marginTop: '0.5rem' }}>ð VINST!</div>}
+              {isWinner && <div style={{ fontSize: '1.2rem', marginTop: '0.5rem' }}>Ã°ÂÂÂ VINST!</div>}
             </div>
           );
         })}
@@ -166,7 +166,7 @@ export default function ScorePage() {
           padding: '0.5rem', borderRadius: 8, marginBottom: '1rem',
           fontWeight: 600
         }}>
-          â ï¸ FEL! Tur byte
+          Ã¢ÂÂ Ã¯Â¸Â FEL! Tur byte
         </div>
       )}
 
@@ -178,7 +178,7 @@ export default function ScorePage() {
             marginBottom: '1rem'
           }}>
             <div style={{ textAlign: 'center', color: '#fff', fontSize: '0.8rem', marginBottom: '0.75rem', opacity: 0.7 }}>
-              Tryck pÃ¥ en boll fÃ¶r att markera som nedfÃ¤lld
+              Tryck pÃÂ¥ en boll fÃÂ¶r att markera som nedfÃÂ¤lld
             </div>
             
             {/* Solids */}
@@ -207,7 +207,7 @@ export default function ScorePage() {
               textAlign: 'center', fontSize: '0.85rem', color: '#444',
               marginBottom: '1rem'
             }}>
-              FÃ¶rsta bollen som fÃ¤lls bestÃ¤mmer grupp
+              FÃÂ¶rsta bollen som fÃÂ¤lls bestÃÂ¤mmer grupp
             </div>
           )}
           {p1Group && (
@@ -216,7 +216,7 @@ export default function ScorePage() {
               borderRadius: 6, border: '1px solid #ddd', background: '#fff',
               cursor: 'pointer', fontSize: '0.8rem', color: '#444'
             }}>
-              ð Byt grupper
+              Ã°ÂÂÂ Byt grupper
             </button>
           )}
         </>
@@ -230,7 +230,7 @@ export default function ScorePage() {
           color: '#fff', cursor: gameOver ? 'default' : 'pointer',
           fontWeight: 600, fontSize: '0.9rem'
         }}>
-          ð Byt tur
+          Ã°ÂÂÂ Byt tur
         </button>
         <button onClick={callFoul} disabled={gameOver} style={{
           flex: 1, padding: '0.75rem', borderRadius: 10,
@@ -238,14 +238,14 @@ export default function ScorePage() {
           color: '#fff', cursor: gameOver ? 'default' : 'pointer',
           fontWeight: 600, fontSize: '0.9rem'
         }}>
-          â ï¸ FEL
+          Ã¢ÂÂ Ã¯Â¸Â FEL
         </button>
         <button onClick={resetGame} style={{
           padding: '0.75rem 1rem', borderRadius: 10,
           border: '1px solid #ddd', background: '#fff',
           cursor: 'pointer', fontWeight: 600, fontSize: '0.9rem'
         }}>
-          ð
+          Ã°ÂÂÂ
         </button>
       </div>
 
@@ -253,7 +253,7 @@ export default function ScorePage() {
       {games.length > 0 && (
         <div>
           <h3 style={{ fontSize: '0.9rem', color: '#1a1a1b', marginBottom: '0.5rem' }}>
-            ð Matcher ({games.length})
+            Ã°ÂÂÂ Matcher ({games.length})
           </h3>
           {games.map((g, i) => (
             <div key={i} style={{
@@ -273,11 +273,11 @@ export default function ScorePage() {
       <details style={{ marginTop: '2rem', fontSize: '0.8rem', color: '#444' }}>
         <summary style={{ cursor: 'pointer', fontWeight: 600 }}>Regler</summary>
         <div style={{ marginTop: '0.5rem', lineHeight: 1.6 }}>
-          <p>â¢ Spelare 1 bollar fÃ¶rst â fÃ¶rsta bollen bestÃ¤mmer grupp</p>
-          <p>â¢ Solids: 1-7 Â· Stripes: 9-15</p>
-          <p>â¢ FÃ¤ll alla dina bollar, sen 8-bollen fÃ¶r att vinna</p>
-          <p>â¢ FEL-knappen byter tur (t.ex. vit boll i hÃ¥l)</p>
-          <p>â¢ Tryck pÃ¥ en boll igen fÃ¶r att Ã¥ngra</p>
+          <p>Ã¢ÂÂ¢ Spelare 1 bollar fÃÂ¶rst Ã¢ÂÂ fÃÂ¶rsta bollen bestÃÂ¤mmer grupp</p>
+          <p>Ã¢ÂÂ¢ Solids: 1-7 ÃÂ· Stripes: 9-15</p>
+          <p>Ã¢ÂÂ¢ FÃÂ¤ll alla dina bollar, sen 8-bollen fÃÂ¶r att vinna</p>
+          <p>Ã¢ÂÂ¢ FEL-knappen byter tur (t.ex. vit boll i hÃÂ¥l)</p>
+          <p>Ã¢ÂÂ¢ Tryck pÃÂ¥ en boll igen fÃÂ¶r att ÃÂ¥ngra</p>
         </div>
       </details>
     </main>
