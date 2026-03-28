@@ -15,7 +15,7 @@ export default function BreakSpeedPage() {
   const [threshold, setThreshold] = useState(0.5);
   const [result, setResult] = useState(null);
   const [level, setLevel] = useState(0);
-  const [status, setStatus] = useState('redo');
+  const [status, setStatus] = useState('ready');
   const [history, setHistory] = useState([]);
   const [unit, setUnit] = useState('kmh');
 
@@ -46,7 +46,7 @@ export default function BreakSpeedPage() {
     if (isFirst) {
       firstHitTime.current = now;
       listeningForSecond.current = true;
-      setStatus('lyssnar på andra smällen...');
+      setStatus('lyssnar pÃ¥ andra smÃ¤llen...');
     } else {
       secondHitTime.current = now;
       listeningForSecond.current = false;
@@ -62,9 +62,9 @@ export default function BreakSpeedPage() {
           time: elapsedSec.toFixed(3),
           id: Date.now()
         }, ...h].slice(0, 10));
-        setStatus('klart! tryck för ny mätning');
+        setStatus('klart! tryck fÃ¶r ny mÃ¤tning');
       } else {
-        setStatus('ogiltig mätning, försök igen');
+        setStatus('ogiltig mÃ¤tning, fÃ¶rsÃ¶k igen');
       }
       firstHitTime.current = null;
       secondHitTime.current = null;
@@ -87,7 +87,7 @@ export default function BreakSpeedPage() {
       analyserRef.current = analyser;
       
       setIsListening(true);
-      setStatus('tryck för att börja mäta');
+      setStatus('tryck fÃ¶r att bÃ¶rja mÃ¤ta');
       firstHitTime.current = null;
       listeningForSecond.current = false;
       
@@ -107,7 +107,7 @@ export default function BreakSpeedPage() {
       };
       tick();
     } catch (err) {
-      setStatus('kunde inte nå mikrofonen: ' + err.message);
+      setStatus('kunde inte nÃ¥ mikrofonen: ' + err.message);
     }
   };
 
@@ -118,7 +118,7 @@ export default function BreakSpeedPage() {
     }
     if (audioCtxRef.current) audioCtxRef.current.close();
     setIsListening(false);
-    setStatus('redo');
+    setStatus('ready');
     setLevel(0);
     firstHitTime.current = null;
     listeningForSecond.current = false;
@@ -132,7 +132,7 @@ export default function BreakSpeedPage() {
   const manualStart = () => {
     firstHitTime.current = performance.now();
     listeningForSecond.current = true;
-    setStatus('lyssnar på andra smällen...');
+    setStatus('lyssnar pÃ¥ andra smÃ¤llen...');
   };
 
   const manualStop = () => {
@@ -160,10 +160,10 @@ export default function BreakSpeedPage() {
       fontFamily: 'system-ui, sans-serif', minHeight: '100vh'
     }}>
       <h1 style={{ textAlign: 'center', fontSize: '1.8rem', marginBottom: '0.5rem' }}>
-        🎱 Break Speed
+        ð± Break Speed
       </h1>
       <p style={{ textAlign: 'center', color: '#666', marginBottom: '2rem' }}>
-        Mät din biljard-sprängningshastighet
+        MÃ¤t din biljard-sprÃ¤ngningshastighet
       </p>
 
       {/* Settings */}
@@ -171,10 +171,10 @@ export default function BreakSpeedPage() {
         background: '#f8f9fa', borderRadius: 12, padding: '1rem',
         marginBottom: '1.5rem'
       }}>
-        <h3 style={{ margin: '0 0 0.75rem', fontSize: '0.9rem', color: '#555' }}>⚙️ Inställningar</h3>
+        <h3 style={{ margin: '0 0 0.75rem', fontSize: '0.9rem', color: '#555' }}>âï¸ InstÃ¤llningar</h3>
         
         <label style={{ display: 'block', marginBottom: '0.5rem', fontSize: '0.85rem' }}>
-          Bordstorlek
+          Table Size
         </label>
         <div style={{ display: 'flex', gap: '0.5rem', marginBottom: '1rem' }}>
           {Object.entries(TABLE_SIZES).map(([key, val]) => (
@@ -190,7 +190,7 @@ export default function BreakSpeedPage() {
         </div>
 
         <label style={{ display: 'block', marginBottom: '0.25rem', fontSize: '0.85rem' }}>
-          Längd (meter)
+          LÃ¤ngd (meter)
         </label>
         <input type="number" step="0.01" value={distance}
           onChange={e => setDistance(e.target.value)}
@@ -202,7 +202,7 @@ export default function BreakSpeedPage() {
         />
 
         <label style={{ display: 'block', marginBottom: '0.25rem', fontSize: '0.85rem' }}>
-          Ljudtröskel: {Math.round(threshold * 100)}%
+          LjudtrÃ¶skel: {Math.round(threshold * 100)}%
         </label>
         <input type="range" min="0.1" max="0.9" step="0.05" value={threshold}
           onChange={e => setThreshold(parseFloat(e.target.value))}
@@ -236,7 +236,7 @@ export default function BreakSpeedPage() {
         <div style={{ fontSize: '1.2rem', color: '#aaa' }}>{speedUnit}</div>
         {result && (
           <div style={{ fontSize: '0.8rem', color: '#888', marginTop: '0.5rem' }}>
-            tid: {result.timeSec.toFixed(3)}s · sträcka: {result.distance}m
+            tid: {result.timeSec.toFixed(3)}s Â· strÃ¤cka: {result.distance}m
           </div>
         )}
       </div>
@@ -263,7 +263,7 @@ export default function BreakSpeedPage() {
             border: 'none', background: '#0070f3', color: '#fff',
             cursor: 'pointer', fontWeight: 600
           }}>
-            🎤 Starta mikrofon
+            ð¤ Start Microphone
           </button>
         ) : (
           <>
@@ -272,7 +272,7 @@ export default function BreakSpeedPage() {
               border: 'none', background: '#ff4444', color: '#fff',
               cursor: 'pointer', fontWeight: 600
             }}>
-              ⏹ Stoppa
+              â¹ Stop
             </button>
             {!listeningForSecond.current ? (
               <button onClick={manualStart} style={{
@@ -280,7 +280,7 @@ export default function BreakSpeedPage() {
                 border: 'none', background: '#22c55e', color: '#fff',
                 cursor: 'pointer', fontWeight: 600
               }}>
-                ▶️ Starta timer
+                â¶ï¸ Start Timer
               </button>
             ) : (
               <button onClick={manualStop} style={{
@@ -288,7 +288,7 @@ export default function BreakSpeedPage() {
                 border: 'none', background: '#f59e0b', color: '#fff',
                 cursor: 'pointer', fontWeight: 600
               }}>
-                ⏱ Stoppa timer
+                â± Stop timer
               </button>
             )}
           </>
@@ -303,7 +303,7 @@ export default function BreakSpeedPage() {
       {history.length > 0 && (
         <div style={{ marginTop: '2rem' }}>
           <h3 style={{ fontSize: '0.9rem', color: '#555', marginBottom: '0.5rem' }}>
-            📊 Tidigare mätningar
+            ð Tidigare mÃ¤tningar
           </h3>
           {history.map((h, i) => (
             <div key={h.id} style={{
@@ -321,15 +321,15 @@ export default function BreakSpeedPage() {
 
       {/* How it works */}
       <details style={{ marginTop: '2rem', fontSize: '0.85rem', color: '#666' }}>
-        <summary style={{ cursor: 'pointer', fontWeight: 600 }}>Hur funkar det?</summary>
+        <summary style={{ cursor: 'pointer', fontWeight: 600 }}>How does it work?</summary>
         <div style={{ marginTop: '0.5rem', lineHeight: 1.6 }}>
-          <p>1. Starta mikrofonen</p>
-          <p>2. Gör din break — mikrofonen detekterar första smällen</p>
-          <p>3. När en boll träffar fjärrbandet detekteras det andra ljudet</p>
-          <p>4. Hastighet = bordets längd ÷ tid</p>
+          <p>1. Start Microphoneen</p>
+          <p>2. GÃ¶r din break â mikrofonen detekterar fÃ¶rsta smÃ¤llen</p>
+          <p>3. NÃ¤r en boll trÃ¤ffar fjÃ¤rrbandet the second sound is detected</p>
+          <p>4. Hastighet = bordets lÃ¤ngd Ã· tid</p>
           <p style={{ marginTop: '0.5rem' }}>
-            Justera ljudtröskeln om det är för känsligt eller inte känsligt nog.
-            Du kan också använda manuell timer om mikrofonen inte funkar bra.
+            Justera ljudtrÃ¶skeln om det Ã¤r fÃ¶r kÃ¤nsligt eller inte kÃ¤nsligt nog.
+            Du kan ocksÃ¥ anvÃ¤nda manuell timer om mikrofonen inte funkar bra.
           </p>
         </div>
       </details>
